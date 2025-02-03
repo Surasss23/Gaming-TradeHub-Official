@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gaming TradeHub - EMI Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #1a1a1a;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #333;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .header h1 {
+            font-size: 2.5rem;
+            color: #f39c12;
+        }
+        .header .id-image-container {
+            width: 150px; /* Adjust size */
+            height: 150px; /* Adjust size */
+            margin-top: 20px;
+            border: 2px solid #f39c12;
+            border-radius: 10px;
+            overflow: hidden;
+            display: inline-block;
+        }
+        .header .id-image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .id-name {
+            text-align: center;
+            font-size: 1.5rem;
+            margin-top: 20px;
+            color: #f39c12;
+        }
+        .box {
+            background-color: #444;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+        .calc-text {
+            text-align: left;
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+        .calc-info {
+            font-size: 1.5rem;
+            margin: 10px 0;
+        }
+        .input-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .input-container input {
+            width: 60%;
+            padding: 15px;
+            margin-left: 10px;
+            font-size: 1.2rem;
+            background-color: #555;
+            border: 1px solid #f39c12;
+            border-radius: 5px;
+            color: #fff;
+        }
+        .input-container .country-code {
+            padding: 15px;
+            background-color: #555;
+            border: 1px solid #f39c12;
+            border-radius: 5px;
+            color: #fff;
+            font-size: 1.2rem;
+        }
+        .button {
+            padding: 15px 30px;
+            background-color: #f39c12;
+            color: #fff;
+            font-size: 1.2rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+            display: block;
+            margin: 30px auto;
+        }
+        .button:hover {
+            background-color: #e67e22;
+        }
+        .submit-btn {
+            background-color: #27ae60;
+            color: #fff;
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            display: block;
+            margin: 20px auto;
+        }
+        .submit-btn:hover {
+            background-color: #2ecc71;
+        }
+        .notification {
+            color: #27ae60;
+            font-size: 1.2rem;
+            text-align: center;
+            display: none;
+            margin-bottom: 20px;
+        }
+        .pay-emi-btn {
+            background-color: #3498db;
+        }
+        .pay-emi-btn:hover {
+            background-color: #2980b9;
+        }
+        .support {
+            text-align: center;
+            font-size: 1rem;
+            margin-top: 20px;
+        }
+        .support a {
+            color: #f39c12;
+            text-decoration: none;
+        }
+        .support a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Header with Gaming TradeHub -->
+        <div class="header">
+            <h1>Gaming TradeHub</h1>
+            <!-- ID Image Container -->
+            <div class="id-image-container">
+                <!-- Replace with ID image link -->
+                <img src="https://i.ibb.co/dwvVY2Mt/photo-2025-02-03-14-24-06.jpg" alt="Gaming ID Image">
+            </div>
+        </div>
+
+        <!-- ID Name Display -->
+        <div class="id-name">
+            <p><strong>Gaming ID Name:</strong> Best Budget Account </p>
+        </div>
+
+        <!-- EMI Calculation Box -->
+        <div class="box">
+            <div class="calc-text">
+                <p><strong>Total Amount:</strong> ₹799</p>
+                <p><strong>Down Payment:</strong> ₹159</p>
+                <p><strong>Remaining Amount:</strong> ₹640</p>
+                <p class="calc-info"><strong>EMI (4 months):</strong> ₹160 per month</p>
+            </div>
+        </div>
+
+        <!-- Phone Number Input Box -->
+        <div class="input-container">
+            <div class="country-code">+91</div>
+            <input type="text" id="phoneNumber" class="input-box" placeholder="Enter your phone number" maxlength="10" oninput="validateNumber()" />
+        </div>
+        
+        <!-- Submit Button -->
+        <div>
+            <button id="submitBtn" class="submit-btn" onclick="submitNumber()">Submit</button>
+        </div>
+
+        <!-- Notification after submitting phone number -->
+        <div id="notification" class="notification">
+            Your details entered successfully! You will receive EMI updates on your WhatsApp.
+        </div>
+
+        <!-- Pay ₹199 Now Button (Hidden initially) -->
+        <div id="payButtonDiv" style="display:none;">
+            <button class="button pay-emi-btn" onclick="window.location.href='upi://pay?pa=surajpandey8143@okaxis&pn=Suraj%20Pandey&am=99.00&cu=INR&aid=uGICAgMD2h-7bDQ'">Pay ₹199 Now</button>
+        </div>
+
+        <!-- Support Section with Telegram Link (Centered) -->
+        <div class="support">
+            <p>Need Help? Contact Us:</p>
+            <p><a href="https://t.me/GamingTradeHub" target="_blank">Your Telegram ID</a></p>
+        </div>
+
+    </div>
+
+    <script>
+        function validateNumber() {
+            var phoneNumber = document.getElementById("phoneNumber").value;
+            var submitBtn = document.getElementById("submitBtn");
+            if (phoneNumber.length == 10) {
+                submitBtn.disabled = false;
+            } else {
+                submitBtn.disabled = true;
+            }
+        }
+
+        function submitNumber() {
+            var phoneNumber = document.getElementById("phoneNumber").value;
+            if (phoneNumber.length == 10) {
+                document.getElementById("notification").style.display = "block";
+                document.getElementById("payButtonDiv").style.display = "block";
+            } else {
+                alert("Please enter a valid phone number.");
+            }
+        }
+    </script>
+
+</body>
+</html>

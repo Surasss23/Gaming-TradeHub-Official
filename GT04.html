@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gaming TradeHub - Product Page</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #121212;
+            color: #ffffff;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+        }
+        .carousel {
+            display: flex;
+            overflow-x: auto;
+            gap: 10px;
+            scroll-behavior: smooth;
+            padding: 10px 0;
+        }
+        .carousel img {
+            width: 100%;
+            max-width: 300px;
+            height: auto;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+        .product-info {
+            background-color: #2a2a2a;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+        .price {
+            color: #00ff00;
+            font-weight: bold;
+            font-size: 18px;
+        }
+        button {
+            background-color: #ff9800;
+            color: white;
+            border: none;
+            padding: 10px;
+            margin-top: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #e68900;
+        }
+        .emi-button {
+            background-color: #007bff;
+        }
+        .emi-button:hover {
+            background-color: #0056b3;
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+        .modal-content {
+            margin: 10% auto;
+            display: block;
+            max-width: 80%;
+            max-height: 80%;
+        }
+        .close {
+            position: absolute;
+            top: 15px;
+            right: 25px;
+            color: white;
+            font-size: 30px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .phone-number-container {
+            margin-top: 20px;
+            background-color: #444;
+            padding: 10px;
+            border-radius: 10px;
+            width: 100%;
+            max-width: 380px;
+            display: flex;
+            align-items: center;
+            margin-left: auto;
+            margin-right: auto;
+            justify-content: space-between;
+            border: 2px solid #00b300; /* Outline added to the entire input container */
+        }
+        .phone-number-container input {
+            padding: 10px;
+            width: 80%;
+            border-radius: 5px;
+            border: 2px solid #00b300; /* Outline added to the input field */
+            font-size: 16px;
+        }
+        .phone-number-container span {
+            background-color: #00b300;
+            color: white;
+            text-align: center;
+            line-height: 40px;
+            font-weight: bold;
+            border-radius: 5px;
+            padding: 0 15px;
+            display: inline-block;
+        }
+        .phone-number-container button {
+            padding: 10px 20px;
+            background-color: #00b300;
+            border: 2px solid #00b300; /* Outline added to the submit button */
+            border-radius: 5px;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            display: block;
+            margin-top: 0;
+            align-self: flex-end;
+        }
+        .phone-number-container button:hover {
+            background-color: #008c00;
+        }
+        .pay-now-button {
+            display: none;
+            background-color: #ff9800;
+            color: white;
+            border: none;
+            padding: 10px;
+            margin-top: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 16px;
+            width: 200px;
+            margin: 20px auto;
+        }
+        .pay-now-button:hover {
+            background-color: #e68900;
+        }
+        .success-message {
+            color: #00b300;
+            font-size: 16px;
+            margin-top: 15px;
+        }
+        .error-message {
+            color: red;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Gaming TradeHub</h1>
+        <p>Buy Your BGMI ID Today!</p>
+    </header>
+    
+    <div class="container">
+        <div class="carousel">
+            <img src="https://i.ibb.co/dwvVY2Mt/photo-2025-02-03-14-24-06.jpg" alt="Product Image 1" onclick="openModal(this.src)">
+            <img src="https://i.ibb.co/0pc0j9KH/photo-2025-02-03-17-57-54.jpg" alt="Product Image 2" onclick="openModal(this.src)">
+            <img src="https://i.ibb.co/wZb9Ggdr/photo-2025-02-03-17-57-55.jpg" alt="Product Image 3" onclick="openModal(this.src)">
+            <img src="https://i.ibb.co/wNXfwrzs/photo-2025-02-03-17-57-56.jpg" alt="Product Image 4" onclick="openModal(this.src)">
+            <img src="https://i.ibb.co/VYTxRP3X/photo-2025-02-03-17-57-57.jpg" alt="Product Image 5" onclick="openModal(this.src)">
+        </div>
+        
+        <div class="product-info">
+            <h2>Best Budget Account</h2>
+            <p><strong>🔺 BEST BUDGET ACCOUNT 🔻</strong></p>
+
+<p><strong>✨ ACCOUNT LEVEL - 75 [HIGH]</strong><br>
+✨ 29 RARE MYTHICS<br>
+✨ 1.9 MATERIAL<br>
+✨ 5 MYTHIC EMBLEMS<br>
+✨ 150+ DAYS ROOMCARD</p>
+
+<p><strong>#UPGRADEABLE</strong><br>
+⭐️ FAERIE PAN LEVEL 2</p>
+
+<p><strong>#OUTFITS</strong><br>
+❤️‍🔥 THE SEVEN SEAS SET<br>
+❤️‍🔥 EMISSARY SET<br>
+❤️‍🔥 STEEL SOLDIER SET<br>
+❤️‍🔥 FIEND HUNTER SET</p>
+
+
+
+            <span class="price">₹799</span>
+            <br>
+            
+            <!-- Phone number input form -->
+            <div class="phone-number-container">
+                <span>+91</span>
+                <input type="text" id="phoneNumber" placeholder="Enter your phone number" />
+                <button onclick="submitPhoneNumber()">Submit</button>
+            </div>
+
+            <!-- Success message -->
+            <p class="success-message" id="success-message"></p>
+            <p class="error-message" id="error-message"></p>
+
+            <!-- Pay Now Button (Hidden until phone number is submitted) -->
+            <button class="pay-now-button" id="payButton" onclick="location.href='upi://pay?pa=surajpandey8143@okaxis&pn=Suraj%20Pandey&am=799.00&cu=INR&aid=uGICAgMD2h-7bDQ'">Pay Amount</button>
+            <button class="emi-button" onclick="location.href='GTEMI4.html'">Pay in EMI</button>
+        </div>
+    </div>
+
+    <div id="myModal" class="modal">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <img class="modal-content" id="img01">
+    </div>
+
+    <script>
+        function openModal(src) {
+            document.getElementById("myModal").style.display = "block";
+            document.getElementById("img01").src = src;
+        }
+        function closeModal() {
+            document.getElementById("myModal").style.display = "none";
+        }
+
+        function submitPhoneNumber() {
+            var phoneNumber = document.getElementById("phoneNumber").value;
+            var phoneRegex = /^\d{10}$/;
+
+            if (phoneRegex.test(phoneNumber)) {
+                // Hide error message, show success message and Pay Now button
+                document.getElementById("error-message").style.display = "none";
+                document.getElementById("success-message").innerText = "Number successfully added! You will receive your account information via SMS and WhatsApp.";
+                document.getElementById("payButton").style.display = "block";
+            } else {
+                // Show error message if the phone number is invalid
+                document.getElementById("error-message").innerText = "Please enter a valid 10-digit phone number.";
+                document.getElementById("error-message").style.display = "block";
+                document.getElementById("success-message").innerText = "";
+                document.getElementById("payButton").style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>
