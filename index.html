@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gaming TradeHub</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Russo+One&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body class="dark">
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container">
+            <button class="logo" onclick="navigateTo('home')">Gaming TradeHub</button>
+            <div class="nav-links">
+                <button onclick="navigateTo('browse')">Browse</button>
+                <button onclick="navigateTo('about')">About Us</button>
+                <button class="primary-btn" onclick="navigateTo('sell')">Sell Account</button>
+                <button id="theme-toggle" onclick="toggleTheme()">
+                    <i class="fas fa-sun"></i>
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Home Section -->
+        <section id="home" class="section active">
+            <div class="hero">
+                <h1>Trade Gaming Accounts<br>
+                    <span class="gradient-text">With Confidence</span>
+                </h1>
+                <p>The trusted marketplace for buying and selling gaming accounts</p>
+            </div>
+
+            <div class="game-grid">
+                <div class="game-card" onclick="navigateTo('browse', 'free-fire')">
+                    <div class="game-card-title">
+                        <i class="fas fa-gun" style="color: orange"></i>
+                        Free Fire
+                    </div>
+                </div>
+                <div class="game-card" onclick="navigateTo('browse', 'bgmi')">
+                    <div class="game-card-title">
+                        <i class="fas fa-tank" style="color: yellow"></i>
+                        BGMI
+                    </div>
+                </div>
+                <div class="game-card" onclick="navigateTo('browse', 'cod')">
+                    <div class="game-card-title">
+                        <i class="fas fa-crosshairs" style="color: red"></i>
+                        Call of Duty
+                    </div>
+                </div>
+                <div class="game-card" onclick="navigateTo('browse', 'valorant')">
+                    <div class="game-card-title">
+                        <i class="fas fa-shield" style="color: pink"></i>
+                        Valorant
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Browse Section -->
+        <section id="browse" class="section">
+            <div class="container">
+                <div class="browse-header">
+                    <h2 id="browse-title">All Games</h2>
+                    <div class="game-filters">
+                        <button class="game-filter active" data-game="all">All Games</button>
+                        <button class="game-filter" data-game="free-fire">Free Fire</button>
+                        <button class="game-filter" data-game="bgmi">BGMI</button>
+                        <button class="game-filter" data-game="cod">Call of Duty</button>
+                        <button class="game-filter" data-game="valorant">Valorant</button>
+                    </div>
+                </div>
+
+                <div class="filters">
+                    <h3>Filters</h3>
+                    <div class="filter-group">
+                        <label>Level Range</label>
+                        <div class="level-range">
+                            <input type="number" id="min-level" min="1" max="100" value="1" placeholder="Min Level">
+                            <span>to</span>
+                            <input type="number" id="max-level" min="1" max="100" value="100" placeholder="Max Level">
+                        </div>
+                    </div>
+                    <button class="primary-btn" onclick="applyFilters()">Apply Filters</button>
+                </div>
+
+                <div class="listings-grid" id="listings-container">
+                    <!-- Listings will be inserted here by JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="section">
+            <div class="container">
+                <div class="about-card">
+                    <h2>About Gaming TradeHub</h2>
+                    <p>Gaming TradeHub is your trusted marketplace for buying and selling gaming accounts. 
+                    We provide a secure platform where gamers can trade their accounts across popular 
+                    games like Free Fire, BGMI, Call of Duty, and Valorant.</p>
+
+                    <h3>Our Mission</h3>
+                    <p>To create a safe and reliable platform for gamers to buy and sell their gaming 
+                    accounts, ensuring fair transactions and protecting both buyers and sellers.</p>
+
+                    <h3>Why Choose Us?</h3>
+                    <ul>
+                        <li>Secure transactions</li>
+                        <li>Verified sellers</li>
+                        <li>24/7 support</li>
+                        <li>Competitive prices</li>
+                    </ul>
+
+                    <h3>Featured Games</h3>
+                    <ul>
+                        <li>Free Fire</li>
+                        <li>BGMI (Battlegrounds Mobile India)</li>
+                        <li>Call of Duty Mobile</li>
+                        <li>Valorant</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sell Section -->
+        <section id="sell" class="section">
+            <div class="container">
+                <div class="sell-card">
+                    <h2>Sell Your Gaming Account</h2>
+                    <form id="sell-form" onsubmit="handleSellSubmit(event)">
+                        <div class="form-group">
+                            <label>Game</label>
+                            <select name="game" required>
+                                <option value="free-fire">Free Fire</option>
+                                <option value="bgmi">BGMI</option>
+                                <option value="cod">Call of Duty</option>
+                                <option value="valorant">Valorant</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Title</label>
+                            <input type="text" name="title" required placeholder="Enter listing title">
+                        </div>
+                        <div class="form-group">
+                            <label>Description</label>
+                            <textarea name="description" required placeholder="Describe your account"></textarea>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Price (₹)</label>
+                                <input type="number" name="price" required min="0" step="1">
+                            </div>
+                            <div class="form-group">
+                                <label>Level</label>
+                                <input type="number" name="level" required min="1" max="100">
+                            </div>
+                        </div>
+                        <button type="submit" class="primary-btn full-width">Create Listing</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
